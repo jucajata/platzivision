@@ -65,6 +65,7 @@ export const ChatInput = ({
       <form
         onSubmit={handleSubmit}
         className="flex items-end gap-x-2 p-4 bg-white dark:bg-transparent"
+        suppressHydrationWarning
       >
         {/* Input oculto para la carga de archivos */}
         <input
@@ -78,6 +79,7 @@ export const ChatInput = ({
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
+          suppressHydrationWarning
           className="p-2.5 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-800 rounded-lg transition-colors"
         >
           <ImageIcon className="h-6.5 w-6.5 text-gray-500 dark:text-gray-400" />
@@ -89,6 +91,7 @@ export const ChatInput = ({
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Escribe un mensaje"
+            suppressHydrationWarning
             className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 p-2 
               bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
               focus:outline-none focus:border-[#0ad17b] dark:focus:border-[#0ad17b] focus:ring-2 transition focus:ring-[#0ce989] dark:focus:ring-[#07b56a]
@@ -99,6 +102,7 @@ export const ChatInput = ({
         <button
           type="submit"
           disabled={!message.trim() || isLoading}
+          suppressHydrationWarning
           className="p-2.5 bg-[#07b56a] text-white rounded-lg 
             hover:bg-[#09995b] dark:hover:bg-[#09995b]
             disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
