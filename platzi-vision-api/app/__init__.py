@@ -13,9 +13,13 @@ def create_app():
     app = Flask(__name__)
     
     # Permite todos los orígenes con la configuración predeterminada de CORS
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
         
     # Registra las rutas directamente
+    @app.route('/')
+    def index():
+        return {"message": "Welcome to PlatziVision API", "status": "running"}
+
     app.add_url_rule('/api/chat', 'chat', chat, methods=['POST'])
     
     return app

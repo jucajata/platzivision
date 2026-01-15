@@ -1,6 +1,7 @@
 from flask import request, jsonify, Response
 import openai
 import json
+import os
 from openai import OpenAI
 
 
@@ -91,7 +92,7 @@ def chat():
 
                 if response is None:
                     response = client.chat.completions.create(
-                        model="gpt-4o-mini",
+                        model=os.getenv("OPENAI_MODEL_NAME", "gpt-4o-mini"),
                         messages=formatted_messages,
                         stream=True,
                         tools=tools
